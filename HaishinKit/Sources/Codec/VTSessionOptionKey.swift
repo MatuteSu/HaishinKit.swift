@@ -1,6 +1,7 @@
 import Foundation
 import VideoToolbox
 
+@available(iOS 17.0, tvOS 17.0, macOS 14.0, *)
 struct VTSessionOptionKey: Codable, RawRepresentable {
     typealias RawValue = String
 
