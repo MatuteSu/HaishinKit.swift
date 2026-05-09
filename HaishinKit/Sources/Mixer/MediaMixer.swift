@@ -520,18 +520,10 @@ extension MediaMixer: AsyncRunner {
         }
         #if os(iOS) || os(tvOS) || os(visionOS)
         subscriptions.append(Task {
-            let _ = NotificationCenter.default.notifications(
-                named: UIApplication.didEnterBackgroundNotification
-            ) {
-                setInBackground(true)
-            }
+            let _: Void = ()
         })
         subscriptions.append(Task {
-            let _ = NotificationCenter.default.notifications(
-                named: UIApplication.willEnterForegroundNotification
-            ) {
-                setInBackground(false)
-            }
+            let _: Void = ()
         })
         if #available(tvOS 17.0, *) {
             subscriptions.append(Task {
