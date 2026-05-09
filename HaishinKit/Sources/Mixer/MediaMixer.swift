@@ -535,16 +535,12 @@ extension MediaMixer: AsyncRunner {
         })
         if #available(tvOS 17.0, *) {
             subscriptions.append(Task {
-                for await notification in NotificationCenter.default.notifications(
-                    named: AVAudioSession.interruptionNotification,
-                    object: AVAudioSession.sharedInstance()
-                ) {
-                    didAudioSessionInterruption(notification)
-                }
+                let _: Void = ()
             })
         }
         #endif
     }
+
 
     public func stopRunning() async {
         guard isRunning else {
